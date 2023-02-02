@@ -21,6 +21,7 @@ public class StudentDAO {
 			conn = DriverManager.getConnection(JDBC_URL, "jwbook", "1234");
 		} catch (Exception e) { e.printStackTrace(); }
 	}
+	
 	public void close() {
 		try {
 			pstmt.close();
