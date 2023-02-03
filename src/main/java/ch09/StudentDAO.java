@@ -66,5 +66,16 @@ public class StudentDAO {
 		} catch (Exception e) { e.printStackTrace(); }
 		  finally { close(); }
 		return students;
-	}	
+	}
+	
+	public void delete(int deleteId) {
+		open();
+		String sql = "DELETE from student where id="+deleteId;
+	
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+		} catch(Exception e) { e.printStackTrace(); }
+		  finally { close(); }
+	}
 }

@@ -55,4 +55,10 @@ public class StudentController extends HttpServlet {
 		dao.insert(s);
 		return list(request, response);
 	}
+	
+	public String delete(HttpServletRequest request, HttpServletResponse response) {
+		int deleteId = Integer.parseInt(request.getParameter("id"));
+		dao.delete(deleteId);
+		return list(request, response);
+	}
 }
