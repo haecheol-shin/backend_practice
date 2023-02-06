@@ -70,10 +70,12 @@ public class StudentDAO {
 	
 	public void delete(int deleteId) {
 		open();
-		String sql = "DELETE from student where id="+deleteId;
+		String sql = "DELETE from student where id=?";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deleteId);
+		
 			pstmt.executeUpdate();
 		} catch(Exception e) { e.printStackTrace(); }
 		  finally { close(); }

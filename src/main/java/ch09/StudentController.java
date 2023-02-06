@@ -36,6 +36,7 @@ public class StudentController extends HttpServlet {
 			switch(action) {
 			case "list": view = list(request, response); break;
 			case "insert": view = insert(request, response); break;
+			case "delete": view = delete(request, response); break;
 			}
 			getServletContext().getRequestDispatcher("/ch09/"+view)
 			.forward(request, response);
@@ -59,6 +60,6 @@ public class StudentController extends HttpServlet {
 	public String delete(HttpServletRequest request, HttpServletResponse response) {
 		int deleteId = Integer.parseInt(request.getParameter("id"));
 		dao.delete(deleteId);
-		return list(request, response);
+		return "studentInfo.jsp";
 	}
 }

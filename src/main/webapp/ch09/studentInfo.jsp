@@ -17,7 +17,7 @@
 		</tr>
 		<c:forEach items="${students}" var="s">
 			<tr>
-				<td>${s.id}</td><td>${s.username}</td><td>${s.univ}</td><td>${s.birth}</td><td>${s.email}</td><td><a href="/jwbook/studentControl?action=delete">X</a></td>
+				<td>${s.id}</td><td>${s.username}</td><td>${s.univ}</td><td>${s.birth}</td><td>${s.email}</td><td><a href="/jwbook/studentControl?action=delete?id=${s.id}">X</a></td>
 			</tr>
 		</c:forEach>
 	</table>
