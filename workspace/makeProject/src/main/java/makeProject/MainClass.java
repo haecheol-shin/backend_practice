@@ -4,11 +4,11 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class MainClass {
 	public static void main(String[] args) {
+		
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationContext.xml");
-		Phone phone = ctx.getBean("phone", Phone.class);
+		IPhone iPhone = ctx.getBean("iPhone", IPhone.class);
 		
-		phone.info();
-		
+		System.out.println(iPhone.getAcc());
 		ctx.close();
 	}
 }

@@ -5,6 +5,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
  		http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="phone" class="makeProject.Phone" />
+	<bean id="phone" class="makeProject.Phone">
+		<property name="name" value="아이폰14" />
+		<property name="price" value="1200000" />
+		<property name="brand" value="Apple" />
+	</bean>
+	
+	<bean id="iPhone" class="makeProject.IPhone">
+		<constructor-arg ref="phone"></constructor-arg>
+		<property name="acc" value="AirPods" />
+	</bean>
 	
 </beans>
