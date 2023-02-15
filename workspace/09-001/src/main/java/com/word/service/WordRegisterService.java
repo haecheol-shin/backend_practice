@@ -1,5 +1,9 @@
 package com.word.service;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -8,38 +12,39 @@ import com.word.dao.WordDao;
 
 public class WordRegisterService {
 	
-	// property나 method에 autowired를 쓰려면 반드시 디폴트 생성자를 명시해줘야한다.
-	// resource는 생성자에 사용할 수 없다. 
+	// @Autowired
 	
-	@Autowired
-	@Qualifier("usedDao")
-	private WordDao wordDao;
+	// @Inject
+	// @Named(value="wordDao1")
+	// @Resource
+	@Autowired(required = false)
+	private WordDao wordDao2;
 	
 	public WordRegisterService() {
 		
 	}
 	
-	@Autowired // 생성자는 상관없다.
+	
 	public WordRegisterService(WordDao wordDao) {
-		this.wordDao = wordDao;
+		this.wordDao2 = wordDao;
 	}
 	
 	public void register(WordSet wordSet) {
 		String wordKey = wordSet.getWordKey();
 		if(verify(wordKey)) {
-			wordDao.insert(wordSet);
+			wordDao2.insert(wordSet);
 		} else {
 			System.out.println("The word has already registered.");
 		}
 	}
 	
 	public boolean verify(String wordKey){
-		WordSet wordSet = wordDao.select(wordKey);
+		WordSet wordSet = wordDao2.select(wordKey);
 		return wordSet == null ? true : false;
 	}
 	
 	public void setWordDao(WordDao wordDao) {
-		this.wordDao = wordDao;
+		this.wordDao2 = wordDao;
 	}
 	
 }

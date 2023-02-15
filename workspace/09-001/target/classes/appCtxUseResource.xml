@@ -10,8 +10,10 @@
 
 	<context:annotation-config />
 	
-	<!-- <bean id="wordDao" class="com.word.dao.WordDao" />  -->
-	
+	<bean id="wordDao1" class="com.word.dao.WordDao" />
+	<bean id="wordDao2" class="com.word.dao.WordDao" />
+	<bean id="wordDao3" class="com.word.dao.WordDao" />
+
 	<bean id="registerService" class="com.word.service.WordRegisterService">
 		<!-- <constructor-arg ref="wordDao" /> -->
 	</bean>
