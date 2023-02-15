@@ -1,6 +1,7 @@
 package com.word.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.word.WordSet;
 import com.word.dao.WordDao;
@@ -8,7 +9,10 @@ import com.word.dao.WordDao;
 public class WordRegisterService {
 	
 	// property나 method에 autowired를 쓰려면 반드시 디폴트 생성자를 명시해줘야한다.
-	@Autowired 
+	// resource는 생성자에 사용할 수 없다. 
+	
+	@Autowired
+	@Qualifier("usedDao")
 	private WordDao wordDao;
 	
 	public WordRegisterService() {
@@ -34,7 +38,6 @@ public class WordRegisterService {
 		return wordSet == null ? true : false;
 	}
 	
-	@Autowired
 	public void setWordDao(WordDao wordDao) {
 		this.wordDao = wordDao;
 	}
