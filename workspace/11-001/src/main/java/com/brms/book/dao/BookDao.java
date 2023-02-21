@@ -33,14 +33,14 @@ public class BookDao implements InitializingBean, DisposableBean {
 		return bookDB;
 	}
 
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("빈(Bean)객체 생성 단계");
+	public void destroy() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
-	@Override
-	public void destroy() throws Exception {
-		System.out.println("빈(Bean)객체 소멸 단계");
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -1,11 +1,13 @@
 package com.brms.book.service;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.brms.book.Book;
 import com.brms.book.dao.BookDao;
 
-public class BookSearchService {
+public class BookSearchService implements InitializingBean, DisposableBean{
 
 	@Autowired
 	private BookDao bookDao;
@@ -15,6 +17,14 @@ public class BookSearchService {
 	public Book searchBook(String bNum) {
 		Book book = bookDao.select(bNum);
 		return book;
+	}
+
+	public void destroy() throws Exception {
+		System.out.println("object ¼Ò¸ê");		
+	}
+
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("object »ý¼º");
 	}
 	
 }
