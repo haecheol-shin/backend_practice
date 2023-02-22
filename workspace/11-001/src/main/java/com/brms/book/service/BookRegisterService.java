@@ -18,7 +18,7 @@ public class BookRegisterService implements InitializingBean, DisposableBean{
 		bookDao.insert(book);
 	}
 	
-	public void destroy() throws Exception {
+	public void destroy() throws Exception { // 인터페이스를 이용하는 방법
 		System.out.println("빈 객체 소멸");
 	}
 
