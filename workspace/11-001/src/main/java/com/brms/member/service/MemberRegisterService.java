@@ -16,7 +16,7 @@ public class MemberRegisterService {
 		memberDao.insert(member);
 	}
 	
-	public void initMethod() { // 메소드를 이용하는 방법
+	public void initMethod() { // 메소드를 이용하는 방법, ctx파일에서 설정한 메소드 이름과 같아야 한다.
 		System.out.println("initMethod 실행");
 	}
 	
