@@ -4,19 +4,19 @@ public class Member {
     private long id;
     private String name;
 
-    public static long getId() {
+    public long getId() {
         return id;
     }
 
-    public static void setId(long id) {
-        Member.id = id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static void setName(String name) {
-        Member.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 }
