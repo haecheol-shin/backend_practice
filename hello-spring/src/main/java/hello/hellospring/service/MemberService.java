@@ -33,9 +33,24 @@ public class MemberService {
         */
         // 이렇게 해도 되지만 권장하는 방법은 아래와 같다.
 
-        validateDuplicateMember(member); // 중복 회원 검증
-        memberRepository.save(member);
-        return member.getId();
+//        validateDuplicateMember(member); // 중복 회원 검증
+//        memberRepository.save(member);
+//        return member.getId();
+
+        // 이렇게 하면 모든 메소드에다 로직을 추가해야 한다.
+        // 이렇게 하면 안된다.
+        // 이것이 AOP가 필요한 상황 중 하나이다.
+        long start = System.currentTimeMillis();
+
+        try {
+            validateDuplicateMember(member); // 중복 회원 검증
+            memberRepository.save(member);
+            return member.getId();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join = "+timeMs+ " ms");
+        }
     }
 
     private void validateDuplicateMember(Member member) {
